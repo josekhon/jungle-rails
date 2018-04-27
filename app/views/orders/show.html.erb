@@ -9,7 +9,7 @@
     <br>
     <%= render 'orders/order_list' %>
     <div class="order-total"> 
-  <h3>Your total: </h3>
+  <h3>Your total: $<%= @order.total_cents / 100 %>  </h3>
   </div>
   </div>
 

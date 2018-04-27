@@ -4,18 +4,18 @@
     <th>Product Name</th>
     <th>Image</th>
     <th>Description</th>
-    <th>Quatity</th>
+    <th>Quantity</th>
     <th>Total</th>
     <th></th>
   <tr>
 </thead>
-<% @order.line_items.each do |product| %>
+<% @order.line_items.each do |t| %>
   <tr>
-    <td class="title"><%= product.product.name %></td>
-    <td><%= image_tag product.product.image %></td>
-    <td><%= product.product.description %></td> 
-    <td><%= product.quantity %></td>
-    <td><%= humanized_money_with_symbol product.quantity * product.product.price_cents/100%></td>
+    <td><%= t.product.name %></td>
+    <td><%= image_tag t.product.image.tiny %></td>
+    <td><%= t.product.description %></td> 
+    <td><%= t.quantity %></td>
+    <td>$<%= t.quantity * t.product.price_cents/100%></td>
   </tr>      
 <% end %>
 </table>
