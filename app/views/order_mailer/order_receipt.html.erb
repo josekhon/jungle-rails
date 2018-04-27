@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <section class="orders-show">
+
+  <header class="page-header">
+    <h1>Order <%= @order.id %></h1>
+  </header>
+
+  <div class="order-summary jumbotron">
+    <h4> Hello <%= @order.email %> This is your order summary!</h4>
+    <br>
+    <%= render 'order_mailer/order_list_receipt' %>
+    <div class="order-total"> 
+  <h3>Your total: $<%= @order.total_cents / 100 %>  </h3>
+  </div>
+  </div>
+
+  
+
+  <h4> Thanks for shopping with us, hope to see you soon! </h4>
+
+</section>
+  </body>
+</html>
