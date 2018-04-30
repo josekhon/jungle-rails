@@ -29,6 +29,32 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+User.destroy_all
+
+User.create!({
+  first_name: "Jody",
+  last_name: "S",
+  email: "jody@gmail.com",
+  password_digest: "hello",
+  password_confirmation: "hello"
+})
+
+User.create!({
+  first_name: "Bill",
+  last_name: "Gates",
+  email: "gates@gmail.com",
+  password_digest: "hello",
+  password_confirmation: "hello"
+})
+
+User.create!({
+  first_name: "Jeff",
+  last_name: "Bezos",
+  email: "bezos@gmail.com",
+  password_digest: "hello",
+  password_confirmation: "hello"
+})
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."
@@ -131,6 +157,47 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+
+puts "Creating Reviews..."
+
+Review.destroy_all
+
+Review.create!({
+  description: Faker::StarWars.quote(),
+  rating: 4,
+  user_id: 1,
+  product_id: 1
+})
+
+Review.create!({
+  description: Faker::StarWars.quote(),
+  rating: 3,
+  user_id: 1,
+  product_id: 2
+})
+
+Review.create!({
+  description: Faker::StarWars.quote(),
+  rating: 3,
+  user_id: 2,
+  product_id: 3
+})
+
+Review.create!({
+  description: Faker::StarWars.quote(),
+  rating: 4,
+  user_id: 2,
+  product_id: 3
+})
+
+Review.create!({
+  description: Faker::StarWars.quote(),
+  rating: 5,
+  user_id: 2,
+  product_id: 3
+})
+
+
 
 
 puts "DONE!"
