@@ -29,3 +29,28 @@
   </article>
 
 </section>
+
+<section class="product-reviews">
+      <h4>Reviews</h4>
+    
+    <% @product.reviews.each do |review| %>
+      <p> Rating: <%= review.rating %></p>
+      <p> <%= review.description %> </p>
+      <p> Review by: <%= User.find(review.user_id).first_name %>
+      <hr>
+   
+    <% end %>
+    <% if current_user %>
+  <%= form_for([@product, @product.reviews.build]) do |f| %>
+    <div class="form-group">
+      <%= f.label :rating %>
+      <%= f.select :rating, options_for_select((1..5).map{|i| i }), { include_blank: true }, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  </p>
+<% end %>
+<% end %>

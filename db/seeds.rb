@@ -180,21 +180,21 @@ Review.create!({
   description: Faker::StarWars.quote(),
   rating: 3,
   user_id: 2,
-  product_id: 3
+  product_id: 5
 })
 
 Review.create!({
   description: Faker::StarWars.quote(),
   rating: 4,
   user_id: 2,
-  product_id: 3
+  product_id: 10
 })
 
 Review.create!({
   description: Faker::StarWars.quote(),
   rating: 5,
   user_id: 2,
-  product_id: 3
+  product_id: 10
 })
 
 
